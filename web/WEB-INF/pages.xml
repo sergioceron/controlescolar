@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages xmlns="http://jboss.org/schema/seam/pages"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://jboss.org/schema/seam/pages http://jboss.org/schema/seam/pages-2.3.xsd"
+
+       no-conversation-view-id="/index.xhtml"
+       login-view-id="/login.xhtml">
+
+    <page view-id="/index.xhtml">
+        <rewrite pattern="/" />
+    </page>
+
+    <page view-id="/place.xhtml">
+        <rewrite pattern="/place/{id}" />
+        <rewrite pattern="/place" />
+
+        <param name="id"
+               value="#{placeController.id}"/>
+    </page>
+
+    <page view-id="/search.xhtml">
+        <rewrite pattern="/search/{searchPattern}"/>
+        <rewrite pattern="/search"/>
+
+        <param name="searchPattern"
+               value="#{searchController.searchPattern}"/>
+
+        <param name="modalidad"
+               value="#{searchController.modalidad}"/>
+
+        <param name="tipo"
+               value="#{searchController.tipo}"/>
+    </page>
+
+
+    <page view-id="/*">
+        <navigation from-action="#{loginController.login}">
+            <rule if-outcome="success">
+                <redirect view-id="/admin.xhtml"/>
+            </rule>
+            <rule if-outcome="failed">
+                <redirect view-id="/login.xhtml"/>
+            </rule>
+        </navigation>
+        <navigation from-action="#{registerController.register}">
+            <rule if-outcome="success">
+                <redirect view-id="/admin.xhtml"/>
+            </rule>
+            <rule if-outcome="failed">
+                <redirect view-id="/register.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+</pages>

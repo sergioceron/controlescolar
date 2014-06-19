@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="apb:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/apb_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="apb/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="apb.war">
+        <element id="artifact" artifact-name="apb:war exploded" />
+        <element id="directory" name="WEB-INF" />
+        <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/jboss-deployment-structure.xml" />
+      </element>
+    </root>
+  </artifact>
+</component>

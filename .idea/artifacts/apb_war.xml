@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="apb:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/apb_war</output-path>
+    <root id="archive" name="apb_war.war">
+      <element id="artifact" artifact-name="apb:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="hibernate-search" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
