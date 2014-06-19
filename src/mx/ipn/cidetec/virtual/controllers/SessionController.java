@@ -1,8 +1,10 @@
 package mx.ipn.cidetec.virtual.controllers;
 
 import mx.ipn.cidetec.virtual.entities.User;
+import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
 
 import javax.persistence.EntityManager;
 
@@ -13,8 +15,9 @@ import javax.persistence.EntityManager;
  * @version rev: %I%
  * @date 3/06/14 11:18 PM
  */
-@Name( "loginController" )
-public class LoginController {
+@Name( "sessionController" )
+@Scope( ScopeType.SESSION )
+public class SessionController {
 
 	@In
 	private EntityManager em;
@@ -25,6 +28,7 @@ public class LoginController {
 		User current = em.find( User.class, user.getUsername() );
 		if( current != null ) {
 			if( current.getPassword().equals( user.getPassword() ) ) {
+                user = current;
 				return "success";
 			}
 		}

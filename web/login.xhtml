@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+<h:body>
+
+    <ui:composition template="/index.xhtml">
+
+        <ui:define name="content">
+
+            <h:form>
+                <h:messages />
+                <div>
+                    <label>Login</label>
+                    <h:inputText value="#{sessionController.user.username}"/>
+                </div>
+                <!-- /.form-group -->
+
+                <div>
+                    <label>Password</label>
+                    <h:inputSecret value="#{sessionController.user.password}"/>
+                </div>
+                <!-- /.form-group -->
+
+                <div>
+                    <h:commandButton action="#{sessionController.login}" value="Login"/>
+                </div>
+                <!-- /.form-group -->
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+</h:body>
+
+</html>
