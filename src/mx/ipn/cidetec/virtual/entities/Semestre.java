@@ -1,8 +1,6 @@
 package mx.ipn.cidetec.virtual.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -16,6 +14,7 @@ public class Semestre {
     private List<Curso> cursos;
 
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     public Long getId() {
         return id;
     }

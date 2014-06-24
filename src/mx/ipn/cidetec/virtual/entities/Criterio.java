@@ -1,6 +1,8 @@
 package mx.ipn.cidetec.virtual.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -14,6 +16,7 @@ public class Criterio {
     private int valor;
 
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     public Long getId() {
         return id;
     }

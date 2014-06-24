@@ -12,6 +12,7 @@ import javax.persistence.*;
  * @date 25/05/14 07:25 PM
  */
 @Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class User {
 	private String username;
 	private String password;

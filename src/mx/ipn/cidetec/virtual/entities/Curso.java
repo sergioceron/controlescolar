@@ -20,6 +20,7 @@ public class Curso {
 
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public Long getId() {
         return id;
     }

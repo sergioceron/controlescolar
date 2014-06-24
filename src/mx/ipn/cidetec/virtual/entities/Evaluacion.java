@@ -16,6 +16,7 @@ public class Evaluacion {
     private Date fecha;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public Long getId() {
         return id;
     }
