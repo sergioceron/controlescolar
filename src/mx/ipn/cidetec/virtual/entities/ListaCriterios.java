@@ -1,9 +1,6 @@
 package mx.ipn.cidetec.virtual.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -15,6 +12,7 @@ public class ListaCriterios {
     private List<Criterio> criterios;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
