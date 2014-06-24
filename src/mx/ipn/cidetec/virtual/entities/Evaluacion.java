@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Evaluacion {
     private Long id;
-    private List<Criterio> criterios;
+    private ListaCriterios listaCriterios;
     private Alumno alumno;
     private Curso curso;
     private Date fecha;
@@ -24,13 +24,13 @@ public class Evaluacion {
         this.id = id;
     }
 
-    @ManyToMany
-    public List<Criterio> getCriterios() {
-        return criterios;
+    @ManyToOne
+    public ListaCriterios getListaCriterios() {
+        return listaCriterios;
     }
 
-    public void setCriterios(List<Criterio> criterios) {
-        this.criterios = criterios;
+    public void setListaCriterios(ListaCriterios listaCriterios) {
+        this.listaCriterios = listaCriterios;
     }
 
     @ManyToOne
@@ -49,5 +49,13 @@ public class Evaluacion {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 }
