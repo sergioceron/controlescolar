@@ -1,7 +1,9 @@
 package mx.ipn.cidetec.virtual.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -10,7 +12,7 @@ import java.util.List;
 @Entity
 public class Alumno extends User {
     private int semestre;
-    private List<Curso> cursos;
+    private List<Curso_Alumno> cursos;
 
     public int getSemestre() {
         return semestre;
@@ -20,12 +22,12 @@ public class Alumno extends User {
         this.semestre = semestre;
     }
 
-    @ManyToMany
-    public List<Curso> getCursos() {
+    @OneToMany(fetch = FetchType.LAZY)//, mappedBy = id.alumno)
+    public List<Curso_Alumno> getCursos() {
         return cursos;
     }
 
-    public void setCursos(List<Curso> cursos) {
+    public void setCursos(List<Curso_Alumno> cursos) {
         this.cursos = cursos;
     }
 }

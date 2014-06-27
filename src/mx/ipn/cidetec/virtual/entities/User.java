@@ -2,7 +2,13 @@ package mx.ipn.cidetec.virtual.entities;
 
 import com.sun.istack.internal.NotNull;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
+import javax.persistence.InheritanceType;
+import javax.persistence.Column;
+
 
 /**
  * -
@@ -12,7 +18,7 @@ import javax.persistence.*;
  * @date 25/05/14 07:25 PM
  */
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public class User {
 	private String username;
 	private String password;
@@ -24,6 +30,7 @@ public class User {
 
 	@Id
 	@NotNull
+    //@Column(name = "username")
 	public String getUsername() {
 		return username;
 	}

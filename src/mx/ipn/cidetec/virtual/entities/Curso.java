@@ -12,7 +12,7 @@ public class Curso {
     private Long id;
     private Materia materia;
     private Profesor profesor;
-    private List<Alumno> alumnos;
+    private List<Curso_Alumno> alumnos;
     private Date inicio;
     private Date termino;
     private List<Hora> horario;
@@ -21,6 +21,7 @@ public class Curso {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    //@Column(name = "id_curso")
     public Long getId() {
         return id;
     }
@@ -47,12 +48,12 @@ public class Curso {
         this.profesor = profesor;
     }
 
-    @ManyToMany
-    public List<Alumno> getAlumnos() {
+    @OneToMany(fetch = FetchType.LAZY)//,mappedBy = id.curso)
+    public List<Curso_Alumno> getAlumnos() {
         return alumnos;
     }
 
-    public void setAlumnos(List<Alumno> alumnos) {
+    public void setAlumnos(List<Curso_Alumno> alumnos) {
         this.alumnos = alumnos;
     }
 
