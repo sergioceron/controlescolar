@@ -8,8 +8,8 @@ import java.io.Serializable;
  */
 @Entity
 @AssociationOverrides(value = {
-        @AssociationOverride(name = "id.alumno"),
-        @AssociationOverride(name = "id.curso")})
+        @AssociationOverride(name = "id.alumno",joinColumns = @JoinColumn(name = "username")),
+        @AssociationOverride(name = "id.curso",joinColumns = @JoinColumn(name = "id"))})
 public class Curso_Alumno implements Serializable {
 
     private CursoAlumnoId id;
@@ -47,11 +47,6 @@ public class Curso_Alumno implements Serializable {
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = id != null ? id.hashCode() : 0;
-        temp = Double.doubleToLongBits(calificacion);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
+        return (getId() != null ? getId().hashCode() : 0);
     }
 }

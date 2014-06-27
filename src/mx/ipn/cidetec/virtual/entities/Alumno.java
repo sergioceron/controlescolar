@@ -22,7 +22,7 @@ public class Alumno extends User {
         this.semestre = semestre;
     }
 
-    @OneToMany(fetch = FetchType.LAZY)//, mappedBy = id.alumno)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.alumno")
     public List<Curso_Alumno> getCursos() {
         return cursos;
     }

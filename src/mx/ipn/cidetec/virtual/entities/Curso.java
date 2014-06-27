@@ -48,7 +48,7 @@ public class Curso {
         this.profesor = profesor;
     }
 
-    @OneToMany(fetch = FetchType.LAZY)//,mappedBy = id.curso)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "id.curso")
     public List<Curso_Alumno> getAlumnos() {
         return alumnos;
     }
