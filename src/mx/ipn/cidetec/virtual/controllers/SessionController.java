@@ -1,12 +1,13 @@
 package mx.ipn.cidetec.virtual.controllers;
 
-import mx.ipn.cidetec.virtual.entities.User;
+import mx.ipn.cidetec.virtual.entities.*;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 /**
  * -
@@ -22,24 +23,26 @@ public class SessionController {
 	@In
 	private EntityManager em;
 
-	private User user = new User();
+	private Alumno user = new Alumno();
 
 	public String login() {
-		User current = em.find( User.class, user.getUsername() );
+		Alumno current = em.find( Alumno.class, user.getUsername() );
 		if( current != null ) {
 			if( current.getPassword().equals( user.getPassword() ) ) {
                 user = current;
+                CursoAlumnoId cai=new CursoAlumnoId();
+                cai.setAlumno(user);
+                user.setCursos((List<Curso_Alumno>) em.find(Curso_Alumno.class, cai));
 				return "success";
 			}
 		}
 		return "failed";
 	}
-
-	public User getUser() {
+	public Alumno getUser() {
 		return user;
 	}
 
-	public void setUser( User user ) {
+	public void setUser( Alumno user ) {
 		this.user = user;
 	}
 }

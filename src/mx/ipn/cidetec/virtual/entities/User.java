@@ -18,7 +18,7 @@ import javax.persistence.Column;
  * @date 25/05/14 07:25 PM
  */
 @Entity
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy= InheritanceType.JOINED)
 public class User {
 	private String username;
 	private String password;
@@ -30,7 +30,6 @@ public class User {
 
 	@Id
 	@NotNull
-    //@Column(name = "username")
 	public String getUsername() {
 		return username;
 	}
@@ -56,15 +55,15 @@ public class User {
 		this.name = name;
 	}
 
-	public String getLastname() {
-		return lastname;
-	}
+    public String getLastname() {
+        return lastname;
+    }
 
-	public void setLastname( String lastname ) {
-		this.lastname = lastname;
-	}
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-	public String getEmail() {
+    public String getEmail() {
 		return email;
 	}
 

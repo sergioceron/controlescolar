@@ -13,6 +13,7 @@ import java.util.List;
 public class Alumno extends User {
     private int semestre;
     private List<Curso_Alumno> cursos;
+    private List<Evaluacion> evaluaciones;
 
     public int getSemestre() {
         return semestre;
@@ -29,5 +30,14 @@ public class Alumno extends User {
 
     public void setCursos(List<Curso_Alumno> cursos) {
         this.cursos = cursos;
+    }
+
+    @OneToMany
+    public List<Evaluacion> getEvaluaciones() {
+        return evaluaciones;
+    }
+
+    public void setEvaluaciones(List<Evaluacion> evaluaciones) {
+        this.evaluaciones = evaluaciones;
     }
 }

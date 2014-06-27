@@ -1,5 +1,6 @@
 package mx.ipn.cidetec.virtual.controllers;
 
+import mx.ipn.cidetec.virtual.entities.Alumno;
 import mx.ipn.cidetec.virtual.entities.User;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
@@ -19,7 +20,7 @@ public class RegisterController {
 	@In
 	private EntityManager em;
 
-	private User user = new User();
+	private Alumno user = new Alumno();
 	private String repassword;
 
 	public String register() {
@@ -33,11 +34,11 @@ public class RegisterController {
 		return "failed";
 	}
 
-	public User getUser() {
+	public Alumno getUser() {
 		return user;
 	}
 
-	public void setUser( User user ) {
+	public void setUser( Alumno user ) {
 		this.user = user;
 	}
 

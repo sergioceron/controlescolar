@@ -10,7 +10,7 @@
     <ui:composition template="/index.xhtml">
 
         <ui:define name="content">
-              Bienvenido #{sessionController.user.name} #{sessionController.user.lastName}
+              Bienvenido #{sessionController.user.name} #{sessionController.user.cursos.{u|u.calificacion}}
         </ui:define>
 
     </ui:composition>

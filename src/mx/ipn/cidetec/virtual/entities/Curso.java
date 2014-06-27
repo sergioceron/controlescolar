@@ -81,4 +81,13 @@ public class Curso {
     public void setHorario(List<Hora> horario) {
         this.horario = horario;
     }
+
+    @ManyToOne
+    public Semestre getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(Semestre semestre) {
+        this.semestre = semestre;
+    }
 }

@@ -39,7 +39,7 @@ public class Semestre {
         this.tipo = tipo;
     }
 
-    @ManyToMany
+    @OneToMany
     public List<Curso> getCursos() {
         return cursos;
     }
