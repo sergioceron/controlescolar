@@ -9,7 +9,7 @@ import java.util.List;
  * Created by sergio on 12/06/2014.
  */
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Materia {
     private String clave;
     private String name;

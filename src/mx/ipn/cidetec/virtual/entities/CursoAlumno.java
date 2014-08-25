@@ -10,10 +10,11 @@ import java.io.Serializable;
 @AssociationOverrides(value = {
         @AssociationOverride(name = "id.alumno",joinColumns = @JoinColumn(name = "username")),
         @AssociationOverride(name = "id.curso",joinColumns = @JoinColumn(name = "id"))})
-public class Curso_Alumno implements Serializable {
+public class CursoAlumno implements Serializable {
 
     private CursoAlumnoId id;
     private double calificacion;
+    private Evaluacion evaluacion;
 
     @EmbeddedId
     public CursoAlumnoId getId() {
@@ -32,12 +33,21 @@ public class Curso_Alumno implements Serializable {
         this.calificacion = calificacion;
     }
 
+    @OneToOne
+    public Evaluacion getEvaluacion() {
+        return evaluacion;
+    }
+
+    public void setEvaluacion(Evaluacion evaluacion) {
+        this.evaluacion = evaluacion;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Curso_Alumno)) return false;
+        if (!(o instanceof CursoAlumno)) return false;
 
-        Curso_Alumno that = (Curso_Alumno) o;
+        CursoAlumno that = (CursoAlumno) o;
 
         if (Double.compare(that.calificacion, calificacion) != 0) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;

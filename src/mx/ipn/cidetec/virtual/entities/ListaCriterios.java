@@ -10,6 +10,7 @@ import java.util.List;
 public class ListaCriterios {
     private Long id;
     private List<Criterio> criterios;
+    private boolean activa;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,5 +29,13 @@ public class ListaCriterios {
 
     public void setCriterios(List<Criterio> criterios) {
         this.criterios = criterios;
+    }
+
+    public boolean isActiva() {
+        return activa;
+    }
+
+    public void setActiva(boolean activa) {
+        this.activa = activa;
     }
 }

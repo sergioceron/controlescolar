@@ -32,7 +32,7 @@ public class SessionController {
                 user = current;
                 CursoAlumnoId cai=new CursoAlumnoId();
                 cai.setAlumno(user);
-                user.setCursos((List<Curso_Alumno>) em.find(Curso_Alumno.class, cai));
+                user.setCursos((List<CursoAlumno>) em.find(CursoAlumno.class, cai));
 				return "success";
 			}
 		}

@@ -13,7 +13,7 @@ public class Criterio {
     private Long id;
     private String texto;
     private String categoria;
-    private int valor;
+    //private int valor;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -41,11 +41,13 @@ public class Criterio {
         this.categoria = categoria;
     }
 
-    public int getValor() {
-        return valor;
-    }
+    //public int getValor() {
+    //    return valor;
+    //}
 
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
+    //public void setValor(int valor) {
+    //    this.valor = valor;
+    //}
+
+    
 }

@@ -12,7 +12,7 @@ public class Curso {
     private Long id;
     private Materia materia;
     private Profesor profesor;
-    private List<Curso_Alumno> alumnos;
+    private List<CursoAlumno> alumnos;
     private Date inicio;
     private Date termino;
     private List<Hora> horario;
@@ -49,11 +49,11 @@ public class Curso {
     }
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "id.curso")
-    public List<Curso_Alumno> getAlumnos() {
+    public List<CursoAlumno> getAlumnos() {
         return alumnos;
     }
 
-    public void setAlumnos(List<Curso_Alumno> alumnos) {
+    public void setAlumnos(List<CursoAlumno> alumnos) {
         this.alumnos = alumnos;
     }
 

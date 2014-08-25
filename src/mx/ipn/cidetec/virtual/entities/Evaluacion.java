@@ -14,6 +14,8 @@ public class Evaluacion {
     private Alumno alumno;
     private Curso curso;
     private Date fecha;
+    private List<Criterio> criterios;
+    private boolean contestada;
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -58,5 +60,22 @@ public class Evaluacion {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.evaluacion")
+    public List<Criterio> getCriterios() {
+        return criterios;
+    }
+
+    public void setCriterios(List<Criterio> criterios) {
+        this.criterios = criterios;
+    }
+
+    public boolean isContestada() {
+        return contestada;
+    }
+
+    public void setContestada(boolean contestada) {
+        this.contestada = contestada;
     }
 }
